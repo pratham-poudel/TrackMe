@@ -3,7 +3,8 @@ const app= express();
 const http = require('http');
 const path = require('path');
 const server = http.createServer(app);
-const io = require('socket.io')(server);
+const socketio = require('socket.io');
+const io= socketio(server);
 io.on('connection', (socket) => {
     console.log('User connected');  
     socket.on('sendLocation', (coords) => {
